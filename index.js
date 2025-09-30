@@ -9,8 +9,9 @@ const cluster = require('node:cluster');
 const { createAdapter, setupPrimary } = require('@socket.io/cluster-adapter');
 
 if (cluster.isPrimary) {
-  const numCPUs = availableParallelism();
-  for (let i = 0; i < numCPUs; i++) {
+  //erased this because I am not making more than 4 localhosts lmao
+  // const numCPUs = availableParallelism();
+  for (let i = 0; i < 4; i++) {
     cluster.fork({
       PORT: 3000 + i
     });
